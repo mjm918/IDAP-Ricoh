@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.inti.ricoh.julfi.idap.Helper.DBHelper;
+import com.inti.ricoh.julfi.idap.SQLite.StudentDB;
 import com.inti.ricoh.julfi.idap.Helper.HTTPHelper;
 import com.inti.ricoh.julfi.idap.Helper.Helper;
 import com.inti.ricoh.julfi.idap.R;
@@ -43,7 +43,7 @@ import static com.inti.ricoh.julfi.idap.Helper.Config.API_WITHDRAW_INSERT;
 import static com.inti.ricoh.julfi.idap.Helper.Config.SHARED_PREFERENCE;
 import static com.inti.ricoh.julfi.idap.Helper.Config.SP_KEY;
 
-public class WithdrawActivityA extends AppCompatActivity {
+public class WithdrawActivity extends AppCompatActivity {
 
     private EditText et_fullname,et_matri,et_bname,et_bacc,et_bholder;
     private TextView tv_date;
@@ -59,7 +59,7 @@ public class WithdrawActivityA extends AppCompatActivity {
     private String INTI_ID,fullname,ic,contact,matri,programme,email,addr,bname,bacc,bholder,sdate,ERROR;
     private int checked = -1;
 
-    private Helper helper = new Helper(WithdrawActivityA.this);
+    private Helper helper = new Helper(WithdrawActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ public class WithdrawActivityA extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        DBHelper dbhelper = new DBHelper(WithdrawActivityA.this);
+        StudentDB dbhelper = new StudentDB(WithdrawActivity.this);
         final Cursor cursor = dbhelper.GetAllData();
 
         sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCE, Context.MODE_PRIVATE);

@@ -115,7 +115,7 @@ public class StudentOption extends AppCompatActivity {
                 }
 
                 if(s.equals(REQ_ELIGBLE)){
-                    Intent intent = new Intent(context,WithdrawActivityA.class);
+                    Intent intent = new Intent(context,WithdrawActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     context.startActivity(intent);
                     ((Activity) context).finish();

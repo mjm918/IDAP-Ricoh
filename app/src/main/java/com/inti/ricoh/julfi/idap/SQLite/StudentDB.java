@@ -1,4 +1,4 @@
-package com.inti.ricoh.julfi.idap.Helper;
+package com.inti.ricoh.julfi.idap.SQLite;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -25,9 +25,9 @@ import static com.inti.ricoh.julfi.idap.Helper.Config.TABLE_NAME;
  * Created by julfi on 31/07/2017.
  */
 
-public class DBHelper extends SQLiteOpenHelper {
+public class StudentDB extends SQLiteOpenHelper {
 
-    public DBHelper(Context context) {
+    public StudentDB(Context context) {
         super(context,TABLE_NAME,null,1);
     }
 
@@ -48,12 +48,10 @@ public class DBHelper extends SQLiteOpenHelper {
                 COLUMN_DOB + " TEXT, " +
                 COLUMN_ADDRESS + " TEXT)";
         db.execSQL(createTable);
-        System.out.println("Query -> \n"+createTable);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP IF TABLE EXISTS "+TABLE_NAME);
         onCreate(db);
     }
 
@@ -83,6 +81,14 @@ public class DBHelper extends SQLiteOpenHelper {
         flag = result != -1;
 
         return flag;
+    }
+
+    public boolean DeleteAll(){
+
+        SQLiteDatabase database = this.getReadableDatabase();
+        int affected = database.delete(TABLE_NAME,null,null);
+        return affected > 0;
+
     }
 
     public Cursor GetAllData(){

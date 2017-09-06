@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -16,7 +17,7 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.inti.ricoh.julfi.idap.Helper.DBHelper;
+import com.inti.ricoh.julfi.idap.SQLite.StudentDB;
 import com.inti.ricoh.julfi.idap.Helper.HTTPHelper;
 import com.inti.ricoh.julfi.idap.Helper.Helper;
 import com.inti.ricoh.julfi.idap.MainActivity;
@@ -65,6 +66,7 @@ public class StudentMainMenu extends AppCompatActivity {
     private ImageButton ib_apply,ib_track,ib_user,ib_logout;
     private boolean  flag;
     String CHECK;
+    int numOfRec = 0;
     private String INTI_ID,
             I_NAME = "Not available",
             I_EMAIL = "Not available",
@@ -159,7 +161,19 @@ public class StudentMainMenu extends AppCompatActivity {
                 });
             }
         });
-        if(CHECK.equals(SP_INVALID) || TextUtils.isEmpty(CHECK)){
+        StudentDB studentDb = new StudentDB(StudentMainMenu.this);
+        Cursor cursor = studentDb.GetAllData();
+        while (cursor.moveToNext()){
+            if(!INTI_ID.equals(cursor.getString(2))){
+                boolean flag = studentDb.DeleteAll();
+                if(flag){
+                    GetInfo();
+                }
+                System.out.println("Deleting from student database - >"+flag);
+            }
+            numOfRec++;
+        }
+        if(numOfRec <= 0 && (CHECK.equals(SP_INVALID) || TextUtils.isEmpty(CHECK))){
             GetInfo();
         }
     }
@@ -247,8 +261,8 @@ public class StudentMainMenu extends AppCompatActivity {
                 I_ADDR = object.getString(INFO_STREET)+ "," + object.getString(INFO_CITY) + "," + object.getString(INFO_STATE) + "," + object.getString(INFO_COUNTRY);
             }
 
-            DBHelper dbHelper = new DBHelper(StudentMainMenu.this);
-            flag = dbHelper.AddInfo(I_NAME,I_MATRI,I_MAJOR,I_IC,I_BNAME,I_BACC,I_BHOLDER,I_EMAIL,I_STYPE,I_MOBILE,I_CITIZEN,I_DOB,I_ADDR);
+            StudentDB studentDb = new StudentDB(StudentMainMenu.this);
+            flag = studentDb.AddInfo(I_NAME,I_MATRI,I_MAJOR,I_IC,I_BNAME,I_BACC,I_BHOLDER,I_EMAIL,I_STYPE,I_MOBILE,I_CITIZEN,I_DOB,I_ADDR);
 
             System.out.println("DATA INSERTION RESULT - > "+flag);
 

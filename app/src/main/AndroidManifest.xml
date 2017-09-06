@@ -30,7 +30,7 @@
             android:name=".Student.StudentOption"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Student.WithdrawActivityA"
+            android:name=".Student.WithdrawActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Student.SSDActivity"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/layout_withdraw"
     android:background="@color/colorAccent"
-    tools:context="com.inti.ricoh.julfi.idap.Student.WithdrawActivityA">
+    tools:context="com.inti.ricoh.julfi.idap.Student.WithdrawActivity">
 
     <ScrollView
         android:layout_width="match_parent"

@@ -1,14 +1,35 @@
 package com.inti.ricoh.julfi.idap.Employee;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.inti.ricoh.julfi.idap.Helper.HTTPHelper;
+import com.inti.ricoh.julfi.idap.Helper.Helper;
 import com.inti.ricoh.julfi.idap.R;
+import com.inti.ricoh.julfi.idap.SQLite.EmployeeDB;
+import com.wang.avi.AVLoadingIndicatorView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
+import static com.inti.ricoh.julfi.idap.Helper.Config.API_EMPLOYEE_INFO;
+import static com.inti.ricoh.julfi.idap.Helper.Config.API_ERROR;
+import static com.inti.ricoh.julfi.idap.Helper.Config.API_FAIL;
+import static com.inti.ricoh.julfi.idap.Helper.Config.INFO_TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,14 +40,23 @@ import com.inti.ricoh.julfi.idap.R;
  * create an instance of this fragment.
  */
 public class SettingFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private String INTI_ID,name,id,programme,working,email,phone;
+    private AVLoadingIndicatorView avl;
+    private RelativeLayout layout_hide;
+    private TextView tv_name,tv_id,tv_programme,tv_working,tv_email,tv_phone;
+    private FragmentActivity activity;
+    private EmployeeDB employeeDB;
+    private Helper helper;
+
+    int numOfData = 0;
 
     private OnFragmentInteractionListener mListener;
 
@@ -42,7 +72,7 @@ public class SettingFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment SettingFragment.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static SettingFragment newInstance(String param1, String param2) {
         SettingFragment fragment = new SettingFragment();
         Bundle args = new Bundle();
@@ -65,10 +95,66 @@ public class SettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setting, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_setting, container, false);
 
-    // TODO: Rename method, update argument and hook method into UI event
+        activity = getActivity();
+
+        helper = new Helper(activity);
+
+        avl = (AVLoadingIndicatorView) view.findViewById(R.id.avl);
+        layout_hide = (RelativeLayout) view.findViewById(R.id.layout_hide);
+        tv_name = (TextView) view.findViewById(R.id.tv_name);
+        tv_email = (TextView) view.findViewById(R.id.tv_email);
+        tv_id = (TextView) view.findViewById(R.id.tv_id);
+        tv_programme = (TextView) view.findViewById(R.id.tv_dept);
+        tv_working = (TextView) view.findViewById(R.id.tv_work);
+        tv_phone = (TextView) view.findViewById(R.id.tv_phone);
+
+        employeeDB = new EmployeeDB(activity);
+        Cursor cursor = employeeDB.GetAllData();
+
+        while(cursor.moveToNext()){
+            numOfData++;
+        }
+        if(numOfData <= 0){
+            GetEmployeeInfo();
+        }else{
+            loadUserData();
+        }
+
+        return view;
+    }
+    public void loadUserData(){
+        Cursor cursor = employeeDB.GetAllData();
+        while (cursor.moveToNext()){
+            name = cursor.getString(1);
+            id = cursor.getString(2);
+            programme = cursor.getString(3);
+            working = cursor.getString(4);
+            email = cursor.getString(5);
+            phone = cursor.getString(6);
+
+            if(id.equals(INTI_ID)){
+                activity.runOnUiThread(new Runnable() {
+                    @SuppressLint("SetTextI18n")
+                    @Override
+                    public void run() {
+                        tv_name.setText(name);
+                        tv_id.setText("INTI ID : "+id);
+                        tv_programme.setText("Programme Name : "+programme);
+                        tv_working.setText("Working Hour : "+working);
+                        tv_email.setText("Email : "+email);
+                        tv_phone.setText("Phone : "+phone);
+                    }
+                });
+            }else{
+                boolean flag = employeeDB.DeleteAll();
+                if(flag){
+                    GetEmployeeInfo();
+                }
+            }
+        }
+    }
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -91,6 +177,84 @@ public class SettingFragment extends Fragment {
         mListener = null;
     }
 
+    public void GetEmployeeInfo(){
+
+        class downloadinfo extends AsyncTask<String,Void,String>{
+
+            private HTTPHelper ruc = new HTTPHelper();
+
+            @Override
+            protected String doInBackground(String... strings) {
+                HashMap<String,String>data = new HashMap<String, String>();
+                data.put("id",strings[0]);
+                return ruc.sendPostRequest(API_EMPLOYEE_INFO,data);
+            }
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                layout_hide.setVisibility(View.GONE);
+                avl.show();
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+
+                layout_hide.setVisibility(View.VISIBLE);
+                avl.hide();
+
+                switch (s){
+                    case API_ERROR:{
+                        helper.NormalDialog("IDAP","Something went wrong. Please try again later.");
+                        break;
+                    }
+                    case API_FAIL:{
+                        helper.NormalDialog("IDAP","API Error. Please contact office");
+                        break;
+                    }
+                    case "":{
+                        GetEmployeeInfo();
+                        break;
+                    }
+                    default:{
+                        ParseJSON(s);
+                        break;
+                    }
+                }
+
+            }
+        }
+        downloadinfo download = new downloadinfo();
+        download.execute(INTI_ID);
+    }
+    public void ParseJSON(String json){
+        try{
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray array = jsonObject.getJSONArray(INFO_TAG);
+
+            for (int i = 0; i < array.length(); i++){
+                JSONObject object = array.getJSONObject(i);
+                name = object.getString("name");
+                programme = object.getString("programme");
+                id = object.getString("matri");
+                working = object.getString("working");
+                email = object.getString("email");
+                phone = object.getString("phone");
+            }
+
+            boolean flag = employeeDB.AddInfo(name,id,programme,email,phone,working);
+            if(flag){
+                loadUserData();
+            }else{
+                GetEmployeeInfo();
+                System.out.println("Insertion failed in employee database");
+            }
+
+        }catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

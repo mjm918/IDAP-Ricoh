@@ -57,7 +57,7 @@ public class EmployeeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Helper helper = new Helper(getApplicationContext());
+        Helper helper = new Helper(EmployeeActivity.this);
         helper.AlertExit();
     }
 }

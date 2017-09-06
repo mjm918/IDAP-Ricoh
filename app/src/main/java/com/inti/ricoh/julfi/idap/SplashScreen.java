@@ -159,7 +159,7 @@ public class SplashScreen extends AppCompatActivity implements OSPermissionObser
         if (stateChanges.getFrom().getEnabled() &&
                 !stateChanges.getTo().getEnabled()) {
             new AlertDialog.Builder(this)
-                    .setMessage("Your Notifications Service is disabled! Please change from mobile phone settings")
+                    .setMessage("Your Notifications Service is disabled! Please enable from mobile phone settings")
                     .show();
         }
 

@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.inti.ricoh.julfi.idap.Helper.DBHelper;
+import com.inti.ricoh.julfi.idap.SQLite.StudentDB;
 import com.inti.ricoh.julfi.idap.Helper.HTTPHelper;
 import com.inti.ricoh.julfi.idap.Helper.Helper;
 import com.inti.ricoh.julfi.idap.R;
@@ -101,22 +101,8 @@ public class StudentInfo extends AppCompatActivity {
         layout_hide = (RelativeLayout) this.findViewById(R.id.layout_hide);
         progressBar = (MaterialProgressBar) this.findViewById(R.id.progress);
 
-        DBHelper dbHelper = new DBHelper(StudentInfo.this);
-        Cursor cursor = dbHelper.GetAllData();
-
-//        COLUMN_NAME + " TEXT, " +
-//                COLUMN_ID + " TEXT, " +
-//                COLUMN_MAJOR + " TEXT, " +
-//                COLUMN_EMAIL + " TEXT, " +
-//                COLUMN_STYPE + " TEXT, " +
-//                COLUMN_MOBILE + " TEXT, " +
-//                COLUMN_CITIZEN + " TEXT, " +
-//                COLUMN_IC + " TEXT, " +
-//                COLUMN_BNAME + " TEXT, " +
-//                COLUMN_BACC + " TEXT, " +
-//                COLUMN_BHOLDER + " TEXT, "+
-//                COLUMN_DOB + " TEXT, " +
-//                COLUMN_ADDRESS + " TEXT)";
+        StudentDB studentDb = new StudentDB(StudentInfo.this);
+        Cursor cursor = studentDb.GetAllData();
 
         while(cursor.moveToNext()){
 

@@ -13,21 +13,25 @@ public class Config {
     public static final String REQ_WITHDRAW = "withdraw";
     public static final String REQ_SSD = "ssd";
     public static final String REQ_TRANSCRIPT = "transcript";
-//    DB
-    static final String TABLE_NAME = "info";
-    static final String COLUMN_NAME = "name";
-    static final String COLUMN_MAJOR = "major";
-    static final String COLUMN_IC = "ic";
-    static final String COLUMN_ID = "sid";
-    static final String COLUMN_EMAIL = "email";
-    static final String COLUMN_STYPE = "stype";
-    static final String COLUMN_MOBILE = "mobile";
-    static final String COLUMN_BNAME = "bname";
-    static final String COLUMN_BACC = "bacc";
-    static final String COLUMN_BHOLDER = "bholder";
-    static final String COLUMN_CITIZEN = "citizen";
-    static final String COLUMN_DOB = "dob";
-    static final String COLUMN_ADDRESS = "address";
+//    DB EMPLOYEE
+    public static final String ETBL_NAME = "einfo";
+    public static final String COLUMN_WORKING = "working";
+    public static final String COLUMN_PROGRAMME = "programme";
+//    DB STUDENT
+    public static final String TABLE_NAME = "info";
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_MAJOR = "major";
+    public static final String COLUMN_IC = "ic";
+    public static final String COLUMN_ID = "sid";
+    public static final String COLUMN_EMAIL = "email";
+    public static final String COLUMN_STYPE = "stype";
+    public static final String COLUMN_MOBILE = "mobile";
+    public static final String COLUMN_BNAME = "bname";
+    public static final String COLUMN_BACC = "bacc";
+    public static final String COLUMN_BHOLDER = "bholder";
+    public static final String COLUMN_CITIZEN = "citizen";
+    public static final String COLUMN_DOB = "dob";
+    public static final String COLUMN_ADDRESS = "address";
 //    api links
     public static final String API_LOGIN = "https://julfikarmahmud.000webhostapp.com/MobileApi/login.php";
     public static final String API_STUDENT_INFO = "https://julfikarmahmud.000webhostapp.com/MobileApi/info.php";
@@ -36,6 +40,7 @@ public class Config {
     public static final String API_TRACK_PROGRESS = "https://julfikarmahmud.000webhostapp.com/MobileApi/trackProgress.php";
     public static final String API_EMP_NOTIFICATION = "https://julfikarmahmud.000webhostapp.com/MobileApi/notification.php";
     public static final String API_TOKEN_REG = "https://julfikarmahmud.000webhostapp.com/MobileApi/registerDevice.php";
+    public static final String API_EMPLOYEE_INFO = "https://julfikarmahmud.000webhostapp.com/MobileApi/getEmpData.php";
 //    shared preference
     public static final String SHARED_PREFERENCE = "com.inti.ricoh.julfi.idap.Helper";
     public static final String SP_KEY = "USER_ID";

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorAccent"
     tools:context="com.inti.ricoh.julfi.idap.Employee.SettingFragment">
 
@@ -13,7 +14,18 @@
             layout="@layout/toolbar"
             android:id="@+id/viewTop"/>
 
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avl"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:indicatorName="BallGridPulseIndicator"
+            app:indicatorColor="@color/colorPrimaryDark"
+            style="@style/AVLoadingIndicatorView.Large"/>
+
         <RelativeLayout
+            android:id="@+id/layout_hide"
             android:padding="@dimen/twdp"
             android:layout_below="@+id/viewTop"
             android:layout_width="match_parent"
@@ -33,7 +45,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/gurbage"
-                        android:textSize="@dimen/normal"
+                        android:textSize="@dimen/text"
                         android:textColor="@color/black"
                         android:layout_marginTop="@dimen/tendp"
                         android:id="@+id/tv_name"/>
@@ -41,14 +53,52 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_bio"
+                        android:id="@+id/tv_id"
                         android:layout_below="@+id/tv_name"
                         android:text="@string/gurbage"
                         android:layout_marginStart="@dimen/tendp"
                         android:layout_marginTop="@dimen/tendp"
                         android:paddingBottom="@dimen/tendp"/>
 
-                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_dept"
+                        android:layout_below="@+id/tv_id"
+                        android:text="@string/gurbage"
+                        android:layout_marginStart="@dimen/tendp"
+                        android:layout_marginTop="@dimen/tendp"
+                        android:paddingBottom="@dimen/tendp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_email"
+                        android:layout_below="@+id/tv_dept"
+                        android:text="@string/gurbage"
+                        android:layout_marginStart="@dimen/tendp"
+                        android:layout_marginTop="@dimen/tendp"
+                        android:paddingBottom="@dimen/tendp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_phone"
+                        android:layout_below="@+id/tv_email"
+                        android:text="@string/gurbage"
+                        android:layout_marginStart="@dimen/tendp"
+                        android:layout_marginTop="@dimen/tendp"
+                        android:paddingBottom="@dimen/tendp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_work"
+                        android:layout_below="@+id/tv_phone"
+                        android:text="@string/gurbage"
+                        android:layout_marginStart="@dimen/tendp"
+                        android:layout_marginTop="@dimen/tendp"
+                        android:paddingBottom="@dimen/tendp"/>
 
                 </RelativeLayout>
 
