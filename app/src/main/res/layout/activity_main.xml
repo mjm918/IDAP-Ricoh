@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/layout_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.inti.ricoh.julfi.idap.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/campus_width"
+                android:layout_height="@dimen/campus_height"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/laureate"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/iv_logo"
+                android:contentDescription="@string/logo_desc" />
+            <ImageView
+                android:alpha="0.5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image"
+                android:src="@drawable/logincampus"
+                android:layout_below="@+id/iv_logo"
+                android:id="@+id/iv_campus"
+                android:contentDescription="@string/logo_desc" />
+
+            <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                android:id="@+id/progress"
+                android:visibility="invisible"
+                android:layout_width="@dimen/circular"
+                android:layout_height="@dimen/circular"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/iv_campus"
+                android:indeterminate="true"
+                app:mpb_progressStyle="circular"
+                app:mpb_indeterminateTint="@color/colorPrimaryDark"
+                app:mpb_progressTint = "@color/colorPrimaryDark"
+                style="@style/Widget.MaterialProgressBar.ProgressBar" />
+
+            <RelativeLayout
+                android:layout_below="@+id/iv_campus"
+                android:id="@+id/layout_hide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_id"
+                    android:theme="@style/EditTextHint"
+                    android:hint="@string/et_id"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/et_id"
+                        android:layout_width="@dimen/tv"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textColor="@color/colorPrimaryDark" />
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_pass"
+                    android:theme="@style/EditTextHint"
+                    android:hint="@string/et_pass"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/input_layout_id"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/et_pass"
+                        android:layout_width="@dimen/tv"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textColor="@color/colorPrimaryDark" />
+                </android.support.design.widget.TextInputLayout>
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_login"
+                    android:layout_marginTop="@dimen/twdp"
+                    android:layout_width="@dimen/tv"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_below="@+id/input_layout_pass"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/login"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/btn_text"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

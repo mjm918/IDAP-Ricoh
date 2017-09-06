@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">IDAP</string>
+    <string name="logo_desc">INTI LOGO</string>
+    <string name="loading">Loading…</string>
+    <string name="et_id">INTI ID</string>
+    <string name="et_pass">Password</string>
+    <string name="login">Sign in</string>
+    <string name="empty">Do not leave this blank</string>
+    <string name="setup">Please wait \nWhile we setup your profile and information</string>
+
+    <!--label-->
+    <string name="info">Information</string>
+    <string name="garbage">this is a text</string>
+    <string name="address">Address : </string>
+    <string name="date">Date : </string>
+    <string name="important">Important Notes</string>
+    <string name="agree">I accept the terms</string>
+    <string name="accepted">Terms accepted</string>
+    <string name="email">Email</string>
+    <string name="form">FORM ID#</string>
+    <string name="track">Tracking Request</string>
+    <string name="current">Current Department</string>
+    <string name="deptinfo">Department Info</string>
+    <string name="remark">Remarks</string>
+    <string name="signature">Authorized Signature : </string>
+
+    <!--button-->
+    <string name="withdraw">Withdraw Course</string>
+    <string name="transcript">Academic Transcript</string>
+    <string name="service">Service Request</string>
+    <string name="student">User Details</string>
+    <string name="submit">Submit</string>
+    <string name="next">Next</string>
+
+    <!--alert-->
+    <string name="goback">Return to previous screen</string>
+    <string name="no_connection">No Internet Connection</string>
+    <string name="no_connection_msg">No internet connection detected or poor connectivity.Please check your connection</string>
+    <string name="connect">OK</string>
+    <string name="confirm_exit">Exit?</string>
+    <string name="confirm_exit_msg">Are you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!--withdrawal-->
+    <string name="whint">as per IC / Passport</string>
+    <string name="wtool">Student Withdrawal</string>
+    <string name="wstitle">Student Particulars</string>
+    <string name="wfname">Full Name</string>
+    <string name="wic">IC / Passport</string>
+    <string name="wcontact">Contact No.</string>
+    <string name="wmatri">Matriculation No.</string>
+    <string name="wprogramme">Programme / Major</string>
+    <string name="wemail">Email</string>
+    <string name="waddress">Permanent Address</string>
+    <string name="wbname">Bank Name</string>
+    <string name="wbaccount">Bank Account No.</string>
+    <string name="wbholder">Bank Account Holder Name</string>
+    <string name="wnote">1. Upon submitting this Withdrawal Form to the Head of Programme, your student ID card will be cancelled. \n2. There will be strictly NO REFUND of fees once the semester commences. \n
+                         3. Student below 18 years old to obtain parent\'s approval for withdrawal. \n4. Deposit / Overpayment of fees (less any outstanding sum) will be refunded accordingly as follows \n(Except for International Students)\n
+                         a) Amount bellow RM 1,000.00 - to be deposited into student\'s bank account\n
+                         b) Amount above RM 1,000.00 - to be deposited into parent\'s bank account.</string>
+
+    <!--second withdrawal-->
+    <string name="whtitle">Head of Programme / Dean of School</string>
+    <string name="whwarning">(Please ensure that the student fills in the particulars clearly and correctly)</string>
+    <string name="whnote">* Pre-mature withdrawals, please select the column beside Pre-mature Withdrawal and select the relevant reason from the options given.\n\n
+                          * For international students\' withdrawal, the form must be forwarded to the international office for clearance.</string>
+    <string name="wreason">Reasons for leaving IICS</string>
+    <string name="title_activity_employee">EmployeeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="applications">Applications</string>
+    <string name="messages">Messages</string>
+    <string name="settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="e_withdrawal">Withdrawal Application</string>
+    <string name="e_transcript">Transcript Application</string>
+    <string name="e_service">Service Request</string>
+    <string name="gurbage">gurbage</string>
+</resources>
+

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:id="@+id/layout_selection"
+    tools:context="com.inti.ricoh.julfi.idap.Student.StudentMainMenu">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/campus_width"
+                android:layout_height="@dimen/campus_height"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/laureate"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/iv_logo"
+                android:contentDescription="@string/logo_desc" />
+            <ImageView
+                android:alpha="0.5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image"
+                android:src="@drawable/logincampus"
+                android:layout_below="@+id/iv_logo"
+                android:id="@+id/iv_campus"
+                android:contentDescription="@string/logo_desc" />
+
+            <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                android:id="@+id/progress"
+                android:visibility="invisible"
+                android:layout_width="@dimen/circular"
+                android:layout_height="@dimen/circular"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/iv_campus"
+                android:indeterminate="true"
+                app:mpb_progressStyle="circular"
+                app:mpb_indeterminateTint="@color/colorPrimaryDark"
+                app:mpb_progressTint = "@color/colorPrimaryDark"
+                style="@style/Widget.MaterialProgressBar.ProgressBar" />
+            <TextView
+                android:id="@+id/tv_loading"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup"
+                android:textAlignment="center"
+                android:textSize="@dimen/normal"
+                android:layout_below="@+id/progress"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorPrimaryDark"/>
+
+            <RelativeLayout
+                android:gravity="center_horizontal"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/iv_campus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout_hide">
+                <android.support.v7.widget.AppCompatImageButton
+                    android:layout_width="@dimen/ib_width"
+                    android:layout_height="@dimen/ib_height"
+                    android:id="@+id/ib_apply"
+                    android:background="@drawable/apply"/>
+                <android.support.v7.widget.AppCompatImageButton
+                    android:layout_width="@dimen/ib_width"
+                    android:layout_height="@dimen/ib_height"
+                    android:background="@drawable/track"
+                    android:id="@+id/ib_track"
+                    android:layout_toEndOf="@+id/ib_apply"/>
+                <android.support.v7.widget.AppCompatImageButton
+                    android:layout_width="@dimen/ib_width"
+                    android:layout_height="@dimen/ib_height"
+                    android:layout_below="@+id/ib_apply"
+                    android:background="@drawable/user"
+                    android:id="@+id/ib_user"/>
+                <android.support.v7.widget.AppCompatImageButton
+                    android:layout_width="@dimen/ib_width"
+                    android:layout_height="@dimen/ib_height"
+                    android:layout_toEndOf="@+id/ib_user"
+                    android:layout_below="@+id/ib_apply"
+                    android:background="@drawable/logout"
+                    android:id="@+id/ib_logout"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

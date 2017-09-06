@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.inti.ricoh.julfi.idap.SplashScreen">
+
+    <ImageView
+        android:layout_width="@dimen/image"
+        android:layout_height="@dimen/image"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"
+        android:contentDescription="@string/logo_desc" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/title"
+        android:id="@+id/tv_app"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/title"
+        android:text="@string/app_name"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp">
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loading"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/loading" />
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+            android:layout_width="@dimen/bar_width"
+            android:layout_height="@dimen/bar_height"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tv_loading"
+            android:indeterminate="true"
+            app:mpb_progressStyle="horizontal"
+            app:mpb_indeterminateTint="@color/colorPrimaryDark"
+            android:visibility="visible"
+            style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal" />
+    </RelativeLayout>
+
+</RelativeLayout>

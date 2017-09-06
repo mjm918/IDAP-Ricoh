@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/item_message">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/message_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <com.android.volley.toolbox.NetworkImageView
+                android:layout_marginStart="@dimen/tendp"
+                android:layout_width="@dimen/fifdp"
+                android:layout_height="@dimen/fifdp"
+                android:layout_marginTop="@dimen/tendp"
+                android:id="@+id/iv_alais"
+                android:contentDescription="@string/gurbage"
+                android:scaleType="fitXY" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tendp"
+                android:text="@string/gurbage"
+                android:layout_toEndOf="@+id/iv_alais"
+                android:layout_marginStart="@dimen/twdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/normal"
+                android:id="@+id/tv_name"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginStart="@dimen/twdp"
+                android:layout_toEndOf="@+id/iv_alais"
+                android:id="@+id/tv_message"
+                android:text="@string/gurbage"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@string/gurbage"
+                android:layout_marginTop="@dimen/tendp"
+                android:textAlignment="textEnd"
+                android:id="@+id/tv_date"/>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

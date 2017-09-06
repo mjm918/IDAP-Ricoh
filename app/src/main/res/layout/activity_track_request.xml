@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.inti.ricoh.julfi.idap.Student.TrackRequest">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                layout="@layout/toolbar"
+                android:id="@+id/viewTop"/>
+
+            <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                android:id="@+id/progressl"
+                android:visibility="invisible"
+                android:layout_width="@dimen/circular"
+                android:layout_height="@dimen/circular"
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                app:mpb_progressStyle="circular"
+                app:mpb_indeterminateTint="@color/colorPrimaryDark"
+                app:mpb_progressTint = "@color/colorPrimaryDark"
+                style="@style/Widget.MaterialProgressBar.ProgressBar" />
+
+            <RelativeLayout
+                android:id="@+id/layout_hide"
+                android:layout_below="@+id/viewTop"
+                android:padding="@dimen/twdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/medium"
+                    android:textStyle="bold"
+                    android:id="@+id/tv_track"
+                    android:text="@string/track" />
+
+                <TextView
+                    android:layout_marginTop="@dimen/tendp"
+                    android:layout_below="@+id/tv_track"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:text="@string/form"
+                    android:textStyle="bold"
+                    android:id="@+id/tv_form"/>
+                <TextView
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/tendp"
+                    android:layout_below="@+id/tv_track"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:layout_toEndOf="@+id/tv_form"
+                    android:layout_marginStart="@dimen/twdp"
+                    android:id="@+id/tv_id"/>
+                <TextView
+                    android:id="@+id/tv_da"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tv_id"
+                    android:layout_marginTop="@dimen/tendp"/>
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_id"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/tv_da"
+                    android:layout_marginStart="@dimen/twdp"/>
+
+                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                    android:id="@+id/progress"
+                    app:rcProgress="10"
+                    app:rcSecondaryProgress="10"
+                    app:rcProgressColor="@color/colorPrimaryDark"
+                    android:layout_marginTop="@dimen/thirdp"
+                    android:layout_height="@dimen/fifdp"
+                    android:layout_width="@dimen/et"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/tv_date"
+                    app:rcBackgroundPadding="10dp" />
+                <TextView
+                    android:id="@+id/tv_curr"
+                    android:text="@string/current"
+                    android:textSize="@dimen/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/progress"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/tendp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_curr"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/tendp"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_current"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/deptinfo"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tv_current"
+                    android:layout_marginTop="@dimen/thirdp"
+                    android:id="@+id/tv_info"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_info"
+                    android:text="Location : Bloack A Level 4 R101"
+                    android:textSize="@dimen/text"
+                    android:layout_marginTop="@dimen/tendp"
+                    android:id="@+id/tv_location"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_location"
+                    android:textSize="@dimen/text"
+                    android:text="Phone Number : 011322211891"
+                    android:id="@+id/tv_contact"
+                    android:layout_marginTop="@dimen/tendp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tendp"
+                    android:layout_below="@+id/tv_contact"
+                    android:textSize="@dimen/text"
+                    android:text="Operation Hours : 09 AM - 4 PM"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

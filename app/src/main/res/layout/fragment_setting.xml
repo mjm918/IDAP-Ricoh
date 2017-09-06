@@ -1,0 +1,62 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.inti.ricoh.julfi.idap.Employee.SettingFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/toolbar"
+            android:id="@+id/viewTop"/>
+
+        <RelativeLayout
+            android:padding="@dimen/twdp"
+            android:layout_below="@+id/viewTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:background="@color/cardview_dark_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginStart="@dimen/tendp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gurbage"
+                        android:textSize="@dimen/normal"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/tendp"
+                        android:id="@+id/tv_name"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_bio"
+                        android:layout_below="@+id/tv_name"
+                        android:text="@string/gurbage"
+                        android:layout_marginStart="@dimen/tendp"
+                        android:layout_marginTop="@dimen/tendp"
+                        android:paddingBottom="@dimen/tendp"/>
+
+                    
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</FrameLayout>

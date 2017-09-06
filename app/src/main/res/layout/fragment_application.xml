@@ -1,0 +1,48 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.inti.ricoh.julfi.idap.Employee.ApplicationFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="@dimen/tv"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:layout_centerInParent="true"
+            android:text="@string/e_withdrawal"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/btn_text"
+            android:id="@+id/btn_withdraw"
+            android:shadowColor="@color/colorPrimary"/>
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="@dimen/tv"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/btn_withdraw"
+            android:text="@string/e_transcript"
+            android:textSize="@dimen/btn_text"
+            android:textColor="@color/colorAccent"
+            android:background="@color/colorPrimaryDark"
+            android:shadowColor="@color/colorPrimary"
+            android:layout_marginTop="@dimen/twdp"
+            android:id="@+id/btn_trans"/>
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="@dimen/tv"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/e_service"
+            android:textSize="@dimen/btn_text"
+            android:shadowColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_below="@+id/btn_trans"
+            android:layout_marginTop="@dimen/twdp"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

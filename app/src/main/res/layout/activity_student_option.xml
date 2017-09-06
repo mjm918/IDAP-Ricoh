@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:id="@+id/layout_option"
+    tools:context="com.inti.ricoh.julfi.idap.Student.StudentOption">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                android:id="@+id/progress"
+                android:layout_below="@+id/iv_campus"
+                android:visibility="invisible"
+                android:layout_width="@dimen/circular"
+                android:layout_height="@dimen/circular"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                app:mpb_progressStyle="circular"
+                app:mpb_indeterminateTint="@color/colorPrimaryDark"
+                app:mpb_progressTint = "@color/colorPrimaryDark"
+                style="@style/Widget.MaterialProgressBar.ProgressBar" />
+
+            <ImageView
+                android:layout_width="@dimen/campus_width"
+                android:layout_height="@dimen/campus_height"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/laureate"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/iv_logo"
+                android:contentDescription="@string/logo_desc" />
+            <ImageView
+                android:alpha="0.5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image"
+                android:src="@drawable/logincampus"
+                android:layout_below="@+id/iv_logo"
+                android:id="@+id/iv_campus"
+                android:contentDescription="@string/logo_desc" />
+
+            <RelativeLayout
+                android:layout_below="@+id/iv_campus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout_hide">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_withdraw"
+                    android:layout_width="@dimen/tv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/btn_text"
+                    android:text="@string/withdraw"/>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_marginTop="@dimen/tendp"
+                    android:id="@+id/btn_service"
+                    android:layout_width="@dimen/tv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_below="@+id/btn_withdraw"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/btn_text"
+                    android:text="@string/service"/>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_marginTop="@dimen/tendp"
+                    android:id="@+id/btn_trans"
+                    android:layout_width="@dimen/tv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_below="@+id/btn_service"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/btn_text"
+                    android:text="@string/transcript"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
