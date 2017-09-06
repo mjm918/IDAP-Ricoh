@@ -1,7 +1,9 @@
 package com.inti.ricoh.julfi.idap.Employee;
 
 import android.annotation.SuppressLint;
+import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -14,6 +16,16 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.inti.ricoh.julfi.idap.AppController;
 import com.inti.ricoh.julfi.idap.Helper.HTTPHelper;
 import com.inti.ricoh.julfi.idap.Helper.Helper;
 import com.inti.ricoh.julfi.idap.R;
@@ -25,11 +37,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static com.inti.ricoh.julfi.idap.Helper.Config.API_EMPLOYEE_INFO;
 import static com.inti.ricoh.julfi.idap.Helper.Config.API_ERROR;
 import static com.inti.ricoh.julfi.idap.Helper.Config.API_FAIL;
 import static com.inti.ricoh.julfi.idap.Helper.Config.INFO_TAG;
+import static com.inti.ricoh.julfi.idap.Helper.Config.SHARED_PREFERENCE;
+import static com.inti.ricoh.julfi.idap.Helper.Config.SP_KEY;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,6 +70,8 @@ public class SettingFragment extends Fragment {
     private FragmentActivity activity;
     private EmployeeDB employeeDB;
     private Helper helper;
+
+    SharedPreferences sharedPreferences;
 
     int numOfData = 0;
 
@@ -98,7 +115,8 @@ public class SettingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
 
         activity = getActivity();
-
+        sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCE, Context.MODE_PRIVATE);
+        INTI_ID = sharedPreferences.getString(SP_KEY,"");
         helper = new Helper(activity);
 
         avl = (AVLoadingIndicatorView) view.findViewById(R.id.avl);
@@ -121,7 +139,6 @@ public class SettingFragment extends Fragment {
         }else{
             loadUserData();
         }
-
         return view;
     }
     public void loadUserData(){
@@ -130,9 +147,9 @@ public class SettingFragment extends Fragment {
             name = cursor.getString(1);
             id = cursor.getString(2);
             programme = cursor.getString(3);
-            working = cursor.getString(4);
+            working = cursor.getString(6);
             email = cursor.getString(5);
-            phone = cursor.getString(6);
+            phone = cursor.getString(4);
 
             if(id.equals(INTI_ID)){
                 activity.runOnUiThread(new Runnable() {
